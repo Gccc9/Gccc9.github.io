@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>关于 | Gccc</title>
+<title>Javascript中__proto__和prototype的区别 | Gccc</title>
 <meta name="description" content="温故而知新">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -102,22 +102,80 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">关于</h2>
-            <div class="post-date">2019-01-25</div>
+            <h2 class="post-title">Javascript中__proto__和prototype的区别</h2>
+            <div class="post-date">2019-06-27</div>
+            
+              <div class="feature-container" style="background-image: url('https://Gccc9.github.io/post-images/tan-tan-javascript-yuan-xing-ji-yuan-xing-lian.png')">
+              </div>
             
             <div class="post-content">
-              <p>github地址: <a href="https://github.com/Gccc9/">https://github.com/Gccc9/</a></p>
+              <blockquote>
+<p>Javascript中使用了原型来保证对象与对象之间的关系。那么，__proto__与prototype有什么区别呢？</p>
+</blockquote>
+<!--more-->
+<h1 id="正文">正文</h1>
+<hr>
+<p><img src="https://Gccc9.github.io/post-images/1561692628075.png" alt=""></p>
+<p>首先，要明确几个点：</p>
+<ol>
+<li>
+<p>在JS里，<strong>万物皆对象</strong> 。方法（Function）是对象，方法的原型(Function.prototype)是对象。因此，它们都会具有对象共有的特点。
+即：对象具有属性__<strong>proto</strong>__，可称为隐式原型，一个对象的隐式原型指向构造该对象的构造函数的原型，这也保证了实例能够访问在构造函数原型中定义的属性和方法。</p>
+</li>
+<li>
+<p>方法(Function)
+方法这个特殊的对象，除了和其他对象一样有上述__<strong>proto</strong>__属性之外，还有自己特有的属性——<strong>原型属性（prototype）</strong> ，这个属性是一个指针，指向一个对象，这个对象的用途就是包含所有实例共享的属性和方法（我们把这个对象叫做<strong>原型对象</strong>）。原型对象也有一个属性，叫做<strong>constructor</strong> ，这个属性包含了一个指针，指回原构造函数。</p>
+</li>
+</ol>
+<p>好啦，知道了这两个基本点，我们来看看上面这副图。</p>
+<ol>
+<li>
+<p>构造函数Foo()
+构造函数的原型属性Foo.prototype指向了原型对象，在原型对象里有共有的方法，所有构造函数声明的实例（这里是f1，f2）都可以共享这个方法。</p>
+</li>
+<li>
+<p>原型对象<strong>Foo.prototype</strong><br>
+<strong>Foo.prototype</strong>保存着实例共享的方法，有一个指针 <strong>constructor</strong> 指回构造函数。</p>
+</li>
+<li>
+<p>实例
+f1和f2是Foo这个对象的两个实例，这两个对象也有属性__<strong>proto</strong>__，指向构造函数的原型对象，这样子就可以像上面1所说的访问原型对象的所有方法啦。</p>
+</li>
+</ol>
+<p>另外：<br>
+构造函数Foo()除了是方法，也是对象啊，它也有__<strong>proto</strong>__属性，指向谁呢？<br>
+指向它的构造函数的原型对象呗。函数的构造函数不就是Function嘛，因此这里的__<strong>proto</strong>__指向了Function.prototype。<br>
+其实除了Foo()，Function(), Object()也是一样的道理。</p>
+<p>原型对象也是对象啊，它的__<strong>proto</strong>__属性，又指向谁呢？
+同理，指向它的构造函数的原型对象呗。这里是Object.prototype.</p>
+<p>最后，Object.prototype的__<strong>proto</strong>__属性指向null。</p>
+<p>总结：</p>
+<ol>
+<li>对象有属性__<strong>proto</strong>__,指向该对象的构造函数的原型对象。</li>
+<li>方法除了有属性__<strong>proto</strong>__,还有属性prototype，prototype指向该方法的原型对象。</li>
+</ol>
+<p>转载链接：<a href="https://www.zhihu.com/question/34183746/answer/58155878">js中__proto__和prototype的区别和关系？ - 知乎</a><br>
+作者：<a href="https://www.zhihu.com/people/doris-53-22/activities">doris</a></p>
 
             </div>
             
               <div class="tag-container">
                 
-                  <a href="https://Gccc9.github.io/tag/w60Yub4bs" class="tag">
-                    life
+                  <a href="https://Gccc9.github.io/tag/pIF7Q9rFx" class="tag">
+                    Javascript
                   </a>
                 
               </div>
             
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://Gccc9.github.io/post/welcome">
+                  <h3 class="post-title">
+                    欢迎来到我的博客
+                  </h3>
+                </a>
+              </div>
             
 
             

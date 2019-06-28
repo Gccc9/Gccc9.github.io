@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Gccc9.github.io</id>
     <title>Gccc</title>
-    <updated>2019-06-27T04:44:10.454Z</updated>
+    <updated>2019-06-28T04:15:01.395Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Gccc9.github.io"/>
     <link rel="self" href="https://Gccc9.github.io/atom.xml"/>
@@ -11,48 +11,75 @@
     <icon>https://Gccc9.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, Gccc</rights>
     <entry>
+        <title type="html"><![CDATA[Javascript中__proto__和prototype的区别]]></title>
+        <id>https://Gccc9.github.io/post/tan-tan-javascript-yuan-xing-ji-yuan-xing-lian</id>
+        <link href="https://Gccc9.github.io/post/tan-tan-javascript-yuan-xing-ji-yuan-xing-lian">
+        </link>
+        <updated>2019-06-27T08:17:32.000Z</updated>
+        <summary type="html"><![CDATA[<blockquote>
+<p>Javascript中使用了原型来保证对象与对象之间的关系。那么，__proto__与prototype有什么区别呢？</p>
+</blockquote>
+]]></summary>
+        <content type="html"><![CDATA[<blockquote>
+<p>Javascript中使用了原型来保证对象与对象之间的关系。那么，__proto__与prototype有什么区别呢？</p>
+</blockquote>
+<!--more-->
+<h1 id="正文">正文</h1>
+<hr>
+<p><img src="https://Gccc9.github.io/post-images/1561692628075.png" alt=""></p>
+<p>首先，要明确几个点：</p>
+<ol>
+<li>
+<p>在JS里，<strong>万物皆对象</strong> 。方法（Function）是对象，方法的原型(Function.prototype)是对象。因此，它们都会具有对象共有的特点。
+即：对象具有属性__<strong>proto</strong>__，可称为隐式原型，一个对象的隐式原型指向构造该对象的构造函数的原型，这也保证了实例能够访问在构造函数原型中定义的属性和方法。</p>
+</li>
+<li>
+<p>方法(Function)
+方法这个特殊的对象，除了和其他对象一样有上述__<strong>proto</strong>__属性之外，还有自己特有的属性——<strong>原型属性（prototype）</strong> ，这个属性是一个指针，指向一个对象，这个对象的用途就是包含所有实例共享的属性和方法（我们把这个对象叫做<strong>原型对象</strong>）。原型对象也有一个属性，叫做<strong>constructor</strong> ，这个属性包含了一个指针，指回原构造函数。</p>
+</li>
+</ol>
+<p>好啦，知道了这两个基本点，我们来看看上面这副图。</p>
+<ol>
+<li>
+<p>构造函数Foo()
+构造函数的原型属性Foo.prototype指向了原型对象，在原型对象里有共有的方法，所有构造函数声明的实例（这里是f1，f2）都可以共享这个方法。</p>
+</li>
+<li>
+<p>原型对象<strong>Foo.prototype</strong><br>
+<strong>Foo.prototype</strong>保存着实例共享的方法，有一个指针 <strong>constructor</strong> 指回构造函数。</p>
+</li>
+<li>
+<p>实例
+f1和f2是Foo这个对象的两个实例，这两个对象也有属性__<strong>proto</strong>__，指向构造函数的原型对象，这样子就可以像上面1所说的访问原型对象的所有方法啦。</p>
+</li>
+</ol>
+<p>另外：<br>
+构造函数Foo()除了是方法，也是对象啊，它也有__<strong>proto</strong>__属性，指向谁呢？<br>
+指向它的构造函数的原型对象呗。函数的构造函数不就是Function嘛，因此这里的__<strong>proto</strong>__指向了Function.prototype。<br>
+其实除了Foo()，Function(), Object()也是一样的道理。</p>
+<p>原型对象也是对象啊，它的__<strong>proto</strong>__属性，又指向谁呢？
+同理，指向它的构造函数的原型对象呗。这里是Object.prototype.</p>
+<p>最后，Object.prototype的__<strong>proto</strong>__属性指向null。</p>
+<p>总结：</p>
+<ol>
+<li>对象有属性__<strong>proto</strong>__,指向该对象的构造函数的原型对象。</li>
+<li>方法除了有属性__<strong>proto</strong>__,还有属性prototype，prototype指向该方法的原型对象。</li>
+</ol>
+<p>转载链接：<a href="https://www.zhihu.com/question/34183746/answer/58155878">js中__proto__和prototype的区别和关系？ - 知乎</a><br>
+作者：<a href="https://www.zhihu.com/people/doris-53-22/activities">doris</a></p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[欢迎来到我的博客]]></title>
         <id>https://Gccc9.github.io/post/welcome</id>
         <link href="https://Gccc9.github.io/post/welcome">
         </link>
         <updated>2019-06-27T02:53:22.000Z</updated>
-        <summary type="html"><![CDATA[<p>您可以在此提交您的建议，以便我更好的改进代码。</p>
+        <summary type="html"><![CDATA[<p>您可以在此畅所欲言。</p>
 ]]></summary>
-        <content type="html"><![CDATA[<p>您可以在此提交您的建议，以便我更好的改进代码。</p>
+        <content type="html"><![CDATA[<p>您可以在此畅所欲言。</p>
 <!--more-->
 <p>github地址: <a href="https://github.com/Gccc9/">https://github.com/Gccc9/</a></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://Gccc9.github.io/post/hello-gridea</id>
-        <link href="https://Gccc9.github.io/post/hello-gridea">
-        </link>
-        <updated>2018-12-11T16:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-<!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="http://hvenotes.fehey.com/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>𝖶𝗂𝗇𝖽𝗈𝗐𝗌</strong> 或 <strong>𝖬𝖺𝖼𝖮𝖲</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
 ]]></content>
     </entry>
 </feed>
