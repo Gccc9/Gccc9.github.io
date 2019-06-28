@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Gccc9.github.io</id>
     <title>Gccc</title>
-    <updated>2019-06-28T04:15:01.395Z</updated>
+    <updated>2019-06-28T04:18:12.951Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Gccc9.github.io"/>
     <link rel="self" href="https://Gccc9.github.io/atom.xml"/>
@@ -12,8 +12,8 @@
     <rights>All rights reserved 2019, Gccc</rights>
     <entry>
         <title type="html"><![CDATA[Javascript中__proto__和prototype的区别]]></title>
-        <id>https://Gccc9.github.io/post/tan-tan-javascript-yuan-xing-ji-yuan-xing-lian</id>
-        <link href="https://Gccc9.github.io/post/tan-tan-javascript-yuan-xing-ji-yuan-xing-lian">
+        <id>https://Gccc9.github.io/post/javascript-zhong-__proto__-he-prototype-de-qu-bie</id>
+        <link href="https://Gccc9.github.io/post/javascript-zhong-__proto__-he-prototype-de-qu-bie">
         </link>
         <updated>2019-06-27T08:17:32.000Z</updated>
         <summary type="html"><![CDATA[<blockquote>
