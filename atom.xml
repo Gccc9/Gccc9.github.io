@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Gccc9.github.io</id>
     <title>Gccc</title>
-    <updated>2019-06-29T06:34:53.042Z</updated>
+    <updated>2019-06-29T12:39:42.215Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Gccc9.github.io"/>
     <link rel="self" href="https://Gccc9.github.io/atom.xml"/>
@@ -10,6 +10,41 @@
     <logo>https://Gccc9.github.io/images/avatar.png</logo>
     <icon>https://Gccc9.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, Gccc</rights>
+    <entry>
+        <title type="html"><![CDATA[electron-vscode-debug-configuration]]></title>
+        <id>https://Gccc9.github.io/post/electron-vscode-debug-configuration</id>
+        <link href="https://Gccc9.github.io/post/electron-vscode-debug-configuration">
+        </link>
+        <updated>2019-06-29T12:19:02.000Z</updated>
+        <summary type="html"><![CDATA[<blockquote>
+<p>之前在Windows上配置VSCode调试Electon环境，一直调试不了，后面找到解决方案了，遂记录之。</p>
+</blockquote>
+]]></summary>
+        <content type="html"><![CDATA[<blockquote>
+<p>之前在Windows上配置VSCode调试Electon环境，一直调试不了，后面找到解决方案了，遂记录之。</p>
+</blockquote>
+<!--more-->
+<h3 id="直接上配置图launchjson">直接上配置图(launch.json)：</h3>
+<pre><code>{
+    &quot;version&quot;: &quot;0.2.0&quot;,
+    &quot;configurations&quot;: [
+      {
+        &quot;name&quot;: &quot;Debug Main Process&quot;,
+        &quot;type&quot;: &quot;node&quot;,
+        &quot;request&quot;: &quot;launch&quot;,
+        &quot;cwd&quot;: &quot;${workspaceRoot}&quot;,
+        &quot;runtimeExecutable&quot;: &quot;C:/Users/Gccc/AppData/Roaming/npm/electron.cmd&quot;,//win10系统  
+      //&quot;runtimeExecutable&quot;: &quot;${workspaceRoot}/node_module/.bin/electron&quot;, //MAC系统
+        &quot;program&quot;: &quot;${workspaceRoot}/main.js&quot;,
+        &quot;protocol&quot;: &quot;legacy&quot;
+      }
+    ]
+}
+</code></pre>
+<p>因为我的项目下没有node_module目录，所以原本<code>${workspaceRoot}/node_module/.bin/electron.cmd</code>需要修改为自己的路径。
+我的路径是<code>C:/Users/Gccc/AppData/Roaming/npm/electron.cmd</code>。所以如此配置，ok，完工~</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Javascript中__proto__和prototype的区别]]></title>
         <id>https://Gccc9.github.io/post/javascript-zhong-__proto__-he-prototype-de-qu-bie</id>

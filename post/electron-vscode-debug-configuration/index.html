@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Javascript | Gccc</title>
+<title>electron-vscode-debug-configuration | Gccc</title>
 <meta name="description" content="温故而知新">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -13,6 +13,12 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://Gccc9.github.io/styles/main.css">
 
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
 
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -95,36 +101,68 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: Javascript</h2>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://Gccc9.github.io/post/javascript-zhong-__proto__-he-prototype-de-qu-bie">
-                  <h2 class="post-title">Javascript中__proto__和prototype的区别</h2>
-                </a>
-                <div class="post-date">
-                  2019-06-27
-                </div>
-                <div class="post-abstract">
-                  <blockquote>
-<p>Javascript中使用了原型来保证对象与对象之间的关系。那么，__proto__与prototype有什么区别呢？</p>
-</blockquote>
-
-                </div>
+          <div class="post-detail">
+            <h2 class="post-title">electron-vscode-debug-configuration</h2>
+            <div class="post-date">2019-06-29</div>
+            
+              <div class="feature-container" style="background-image: url('https://Gccc9.github.io/post-images/electron-vscode-debug-configuration.png')">
               </div>
-              
-                <a class="right" href="https://Gccc9.github.io/post/javascript-zhong-__proto__-he-prototype-de-qu-bie">
-                  <div class="feature-container" style="background-image: url('https://Gccc9.github.io/post-images/javascript-zhong-__proto__-he-prototype-de-qu-bie.png')">
-                  </div>
-                </a>
-              
-            </article>
-          
+            
+            <div class="post-content">
+              <blockquote>
+<p>之前在Windows上配置VSCode调试Electon环境，一直调试不了，后面找到解决方案了，遂记录之。</p>
+</blockquote>
+<!--more-->
+<h3 id="直接上配置图launchjson">直接上配置图(launch.json)：</h3>
+<pre><code>{
+    &quot;version&quot;: &quot;0.2.0&quot;,
+    &quot;configurations&quot;: [
+      {
+        &quot;name&quot;: &quot;Debug Main Process&quot;,
+        &quot;type&quot;: &quot;node&quot;,
+        &quot;request&quot;: &quot;launch&quot;,
+        &quot;cwd&quot;: &quot;${workspaceRoot}&quot;,
+        &quot;runtimeExecutable&quot;: &quot;C:/Users/Gccc/AppData/Roaming/npm/electron.cmd&quot;,//win10系统  
+      //&quot;runtimeExecutable&quot;: &quot;${workspaceRoot}/node_module/.bin/electron&quot;, //MAC系统
+        &quot;program&quot;: &quot;${workspaceRoot}/main.js&quot;,
+        &quot;protocol&quot;: &quot;legacy&quot;
+      }
+    ]
+}
+</code></pre>
+<p>因为我的项目下没有node_module目录，所以原本<code>${workspaceRoot}/node_module/.bin/electron.cmd</code>需要修改为自己的路径。
+我的路径是<code>C:/Users/Gccc/AppData/Roaming/npm/electron.cmd</code>。所以如此配置，ok，完工~</p>
 
-          <div class="pagination-container">
-  
-  
-</div>
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://Gccc9.github.io/tag/ntpCBYNkH" class="tag">
+                    electron
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://Gccc9.github.io/post/javascript-zhong-__proto__-he-prototype-de-qu-bie">
+                  <h3 class="post-title">
+                    Javascript中__proto__和prototype的区别
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
 
         </div>
       </div>
@@ -146,6 +184,29 @@ var app = new Vue({
 })
 
 </script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '3aaa4833efc27a2c773e',
+        clientSecret: '85e377304df6746a11e1838a1297f47fa5459102',
+        repo: 'Gccc9.github.io',
+        owner: 'Gccc9',
+        admin: ['Gccc9'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
 
 
 
