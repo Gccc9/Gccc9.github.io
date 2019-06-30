@@ -5045,6 +5045,14 @@ a {
     display: flex;
     flex-direction: column;
     overflow-y: hidden;
+    z-index:1;
+}
+.post-item{
+    display: flex;
+    padding-bottom: 32px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid #ced4da;
+    z-index: -1;
 }
 .post-title{
     position: relative;
